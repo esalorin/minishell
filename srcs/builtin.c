@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:07:37 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/20 17:21:08 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/03/26 15:04:10 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,17 +28,17 @@ char    **make_builtin(void)
     return (des);
 }
 
-int builtin_func(char **args, int i)
+int builtin_func(char **args, int i, t_sh *sh)
 {
     if (i == 1)
-        sh_cd(args);
+        sh_cd(args, sh);
     else if (i == 2)
         sh_echo(args);
-    /*else if (i == 3)
-        sh_env(args);
-    else if (i == 4)
-        sh_setenv(args);
+    else if (i == 3)
+        sh_env(args, sh);
+    /*else if (i == 4)
+        sh_setenv(args, sh);*/
     else if (i == 5)
-        sh_unsetenv(args);*/
+        sh_unsetenv(args, sh);
     return (1);
 }

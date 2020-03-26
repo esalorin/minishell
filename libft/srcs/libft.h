@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:53:07 by esalorin          #+#    #+#             */
-/*   Updated: 2020/03/21 18:27:51 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/03/26 16:04:05 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ char				*ft_itoa_unsigned(unsigned long long value, int base,
 char				*ft_ftoa(long double n, int p);
 
 char				**ft_strsplit(char const *s, char c);
-char   				**ft_array_push(char **array, char *str);
+char   				**ft_array_push(char **array, char *str, int index);
 char				**ft_arraynew(size_t size);
 char				**ft_array_merge(char **ar1, char **ar2);
+char				**ft_arraycpy(char **array);
+char				**ft_arrayrem(char **array, int index);
 
 int					ft_strcmp(const char *s1, const char *s2);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);

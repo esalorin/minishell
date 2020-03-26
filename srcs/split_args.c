@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 14:27:24 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/21 17:56:20 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/03/22 19:39:47 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ static char **quotes(char **array, char *s, int *i, int *j)
     ft_strdel(&temp);
     ft_arraydel(ar3);
     ft_arraydel(ar2);
+    ft_arraydel(array);
     return (ar1);
 }
 
@@ -67,18 +68,17 @@ static char	**split_args(char *s)
         if (s[i] == 34)
         {
             temp = quotes(array, s, &i, &j);
-            ft_arraydel(array);
             array = temp;
         }
         else if (s[i] == '\0')
         {
             temp = last(array, s, i, j);
+            ft_strdel(&s);
             return (temp);
         }
         i++;
 	}
     ft_strdel(&s);
-    ft_putarray(array);
 	return (array);
 }
 
@@ -103,6 +103,7 @@ char  	  **check_if_string(char *s)
 		ft_strdel(&tmp);
 		tmp = ft_strjoin(s1, s2);
 		ft_strdel(&s1);
+        ft_strdel(&s2);
 		s1 = tmp;
 		count = ft_chrcount(s1, 34);
 	}

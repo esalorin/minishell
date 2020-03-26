@@ -1,43 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_arrayrem.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/26 13:54:55 by eenasalorin      ###   ########.fr       */
+/*   Created: 2020/03/26 15:59:59 by eenasalorin       #+#    #+#             */
+/*   Updated: 2020/03/26 16:50:41 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "libft.h"
 
-void    sh_loop(t_sh sh)
+char	**ft_arrayrem(char **array, int index)
 {
-	char	*line;
-	char	**args;
-	int		status;
-
-	status = 1;
-	while (status)
+	char	**des;
+	int		i;
+	int		j;
+    int     len;
+    
+	i = 0;
+	j = 0;
+	len = 0;
+	while (array[len])
+		len++;
+	des = (char**)malloc(sizeof(char*) * len);
+	while (i < (len - 1))
 	{
-		ft_printf("$> ");
-		get_next_line(0, &line);
-		args = check_if_string(line);
-		status = sh_commands(args, &sh);
-		ft_strdel(&line);
-		ft_arraydel(args);
+		if (j == index)
+			j++;
+		des[i++] = ft_strdup(array[j++]);
 	}
-}
-
-int main(int ac, char **av, char **env)
-{
-	t_sh sh;
-	
-	if (ac && av[0])
-	{
-		sh.env = ft_arraycpy(env);
-		sh_loop(sh);
-	}
-	return (0);
+	des[i] = 0;
+	return (des);
 }

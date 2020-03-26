@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_arraydel.c                                      :+:      :+:    :+:   */
+/*   ft_arraycpy.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/20 19:08:00 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/24 17:26:12 by eenasalorin      ###   ########.fr       */
+/*   Created: 2020/03/25 20:26:19 by eenasalorin       #+#    #+#             */
+/*   Updated: 2020/03/25 20:27:51 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_arraydel(char **array)
+char	**ft_arraycpy(char **array)
 {
-	int	i;
-
+	char	**des;
+	int		i;
+    
 	i = 0;
 	while (array[i])
-		ft_strdel(&array[i++]);
-	free(array);
-	array = NULL;
+		i++;
+	des = (char**)malloc(sizeof(char*) * (i + 1));
+	i = 0;
+	while (array[i])
+    {
+	    des[i] = ft_strdup(array[i]);
+        i++;
+    }
+	des[i] = 0;
+	return (des);
 }
