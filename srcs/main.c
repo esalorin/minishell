@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/26 13:54:55 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/02 18:10:00 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 void    sh_loop(t_sh sh)
 {
 	char	*line;
-	char	**args;
 	int		status;
 
 	status = 1;
@@ -23,10 +22,11 @@ void    sh_loop(t_sh sh)
 	{
 		ft_printf("$> ");
 		get_next_line(0, &line);
-		args = check_if_string(line);
-		status = sh_commands(args, &sh);
+		sh.args = check_if_quotes(line);
+		expansions(&sh);
+		status = sh_commands(&sh);
 		ft_strdel(&line);
-		ft_arraydel(args);
+		ft_arraydel(sh.args);
 	}
 }
 
@@ -36,8 +36,11 @@ int main(int ac, char **av, char **env)
 	
 	if (ac && av[0])
 	{
-		sh.env = ft_arraycpy(env);
+		sh.env = ft_arraydup(env);
+		sh.home = savehome(sh.env);
 		sh_loop(sh);
+		ft_strdel(&sh.home);
+		ft_arraydel(sh.env);
 	}
 	return (0);
 }

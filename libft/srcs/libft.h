@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:53:07 by esalorin          #+#    #+#             */
-/*   Updated: 2020/03/26 16:04:05 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/01 16:28:53 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct		s_list
 
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
+size_t 				ft_arraylen(char **array);
 
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
@@ -51,12 +52,15 @@ char				*ft_itoa_base(long long value, int base, char c);
 char				*ft_itoa_unsigned(unsigned long long value, int base,
 					char c);
 char				*ft_ftoa(long double n, int p);
+char				*ft_joindel(char *s1, char *s2);
+char				*ft_rmchr(char *s, int c);
+char    			*ft_rmescapes(char *s);
 
 char				**ft_strsplit(char const *s, char c);
 char   				**ft_array_push(char **array, char *str, int index);
 char				**ft_arraynew(size_t size);
 char				**ft_array_merge(char **ar1, char **ar2);
-char				**ft_arraycpy(char **array);
+char				**ft_arraydup(char **array);
 char				**ft_arrayrem(char **array, int index);
 
 int					ft_strcmp(const char *s1, const char *s2);

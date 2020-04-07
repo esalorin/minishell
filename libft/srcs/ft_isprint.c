@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esalorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 17:32:36 by esalorin          #+#    #+#             */
-/*   Updated: 2019/10/22 12:09:36 by esalorin         ###   ########.fr       */
+/*   Updated: 2020/04/01 16:54:37 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_isprint(int c)
 {
-	if (c > 31 && c < 127)
+	if (c > 32 && c < 127)
 		return (1);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 14:18:24 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/21 18:12:54 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/03/27 15:59:13 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,5 +33,7 @@ char	**ft_array_merge(char **ar1, char **ar2)
     while (ar2[i])
 		des[j++] = ft_strdup(ar2[i++]);
 	des[j] = 0;
+	ft_arraydel(ar1);
+	ft_arraydel(ar2);
 	return (des);
 }
