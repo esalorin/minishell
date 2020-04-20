@@ -6,39 +6,39 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:07:37 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/02 18:33:19 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 14:25:40 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-char    **make_builtin(void)
+char	**make_builtin(void)
 {
-    char    **des;
+	char	**des;
 
-    if (!(des = (char**)malloc(sizeof(char*) * 7)))
-        return (NULL);
-    des[0] = ft_strdup("exit");
-    des[1] = ft_strdup("cd");
-    des[2] = ft_strdup("echo");
-    des[3] = ft_strdup("env");
-    des[4] = ft_strdup("setenv");
-    des[5] = ft_strdup("unsetenv");
-    des[6] = 0;
-    return (des);
+	if (!(des = (char**)malloc(sizeof(char*) * 7)))
+		return (NULL);
+	des[0] = ft_strdup("exit");
+	des[1] = ft_strdup("cd");
+	des[2] = ft_strdup("echo");
+	des[3] = ft_strdup("env");
+	des[4] = ft_strdup("setenv");
+	des[5] = ft_strdup("unsetenv");
+	des[6] = 0;
+	return (des);
 }
 
-int builtin_func(int i, t_sh *sh)
+int		builtin_func(int i, t_sh *sh)
 {
-    if (i == 1)
-        sh_cd(sh);
-    else if (i == 2)
-        sh_echo(sh);
-    else if (i == 3)
-        sh_env(sh);
-    else if (i == 4)
-        sh_setenv(sh);
-    else if (i == 5)
-        sh_unsetenv(sh);
-    return (1);
+	if (i == 1)
+		sh_cd(sh);
+	else if (i == 2)
+		sh_echo(sh);
+	else if (i == 3)
+		sh_env(sh);
+	else if (i == 4)
+		sh_setenv(sh);
+	else if (i == 5)
+		sh_unsetenv(sh);
+	return (1);
 }

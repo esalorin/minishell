@@ -6,24 +6,24 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/02 18:36:31 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 15:39:46 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MINISHELL_H
 # define MINISHELL_H
 
-# include		"libft/srcs/libft.h"
-# include		<sys/wait.h>
-# include		<sys/types.h>
-# include		<sys/stat.h>
-# include		<signal.h>
+# include "libft/srcs/libft.h"
+# include <sys/wait.h>
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <signal.h>
 
 typedef struct	s_sh
 {
-    char		**env;
-    char        **args;
-    char        *home;
+	char		**env;
+	char		**args;
+	char		*home;
 
 }				t_sh;
 
@@ -40,9 +40,9 @@ int				sh_commands(t_sh *sh);
 int				builtin_func(int i, t_sh *sh);
 int				if_escape(char *s, char c);
 int				quote_match(char *s);
-int	        	count_slash(char *s, int i);
+int				count_slash(char *s, int i);
 
-char            *ft_rmescapes_inquotes(char *s, char c);
+char			*ft_rmescapes_inquotes(char *s, char c);
 char			*savehome(char **env);
 
 char			**make_builtin(void);

@@ -6,13 +6,13 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 18:26:14 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/21 18:27:05 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 15:21:54 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_strfound(const char *haystack, const char *needle)
+int	ft_strfound(const char *haystack, const char *needle)
 {
 	int i;
 	int a;

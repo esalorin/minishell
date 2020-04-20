@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:53:07 by esalorin          #+#    #+#             */
-/*   Updated: 2020/04/01 16:28:53 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 15:20:48 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ typedef struct		s_list
 
 size_t				ft_strlen(const char *s);
 size_t				ft_strlcat(char *dst, const char *src, size_t dstsize);
-size_t 				ft_arraylen(char **array);
+size_t				ft_arraylen(char **array);
 
 char				*ft_strdup(const char *s1);
 char				*ft_strcpy(char *dst, const char *src);
@@ -54,10 +54,10 @@ char				*ft_itoa_unsigned(unsigned long long value, int base,
 char				*ft_ftoa(long double n, int p);
 char				*ft_joindel(char *s1, char *s2);
 char				*ft_rmchr(char *s, int c);
-char    			*ft_rmescapes(char *s);
+char				*ft_rmescapes(char *s);
 
 char				**ft_strsplit(char const *s, char c);
-char   				**ft_array_push(char **array, char *str, int index);
+char				**ft_array_push(char **array, char *str, int index);
 char				**ft_arraynew(size_t size);
 char				**ft_array_merge(char **ar1, char **ar2);
 char				**ft_arraydup(char **array);
@@ -91,7 +91,7 @@ int					ft_check_di(char *s, int *m);
 int					ft_check_oux(char *s, char c, int *m);
 int					ft_nbrlen(long long n);
 int					ft_chrcount(const char *s, int c);
-int 				ft_strfound(const char *haystack, const char *needle);
+int					ft_strfound(const char *haystack, const char *needle);
 
 long long			ft_atoi_base(const char *nbr, unsigned int base);
 

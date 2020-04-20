@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   expansions.c                                        :+:      :+:    :+:   */
+/*   expansions.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 14:46:14 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/02 14:46:30 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 14:44:34 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static char	*home(char *arg, char *home)
 {
-	int 	i;
+	int		i;
 	char	*tmp;
 	char	*des;
 
@@ -39,7 +39,7 @@ static char	*envar(char *arg, char **env, char *exp)
 	char	*s1;
 	char	*s2;
 	char	*des;
-	
+
 	i = 0;
 	des = NULL;
 	while (arg[i] && arg[i] != '$')
@@ -60,9 +60,9 @@ static char	*envar(char *arg, char **env, char *exp)
 	return ((des) ? des : s1);
 }
 
-void    expansions(t_sh *sh)
+void		expansions(t_sh *sh)
 {
-	int 	i;
+	int		i;
 	char	*tmp;
 	char	*exp;
 
@@ -74,7 +74,6 @@ void    expansions(t_sh *sh)
 			tmp = envar(sh->args[i], sh->env, exp);
 			ft_strdel(&sh->args[i]);
 			sh->args[i] = tmp;
-
 		}
 		else if (ft_strchr(sh->args[i], '~'))
 		{
@@ -87,11 +86,11 @@ void    expansions(t_sh *sh)
 	}
 }
 
-char    *savehome(char **env)
+char		*savehome(char **env)
 {
 	int		i;
 	char	*home;
-    
+
 	i = 0;
 	home = NULL;
 	while (env[i])
@@ -99,7 +98,7 @@ char    *savehome(char **env)
 		if (ft_strncmp(env[i], "HOME=", 5) == 0)
 		{
 			home = ft_strsub(env[i], 5, ft_strlen(env[i]) - 5);
-			break;
+			break ;
 		}
 		i++;
 	}

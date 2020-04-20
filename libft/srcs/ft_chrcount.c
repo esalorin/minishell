@@ -6,18 +6,18 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 17:42:18 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/20 17:50:26 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 15:21:19 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int ft_chrcount(const char *s, int c)
+int	ft_chrcount(const char *s, int c)
 {
 	int i;
-    int count;
+	int count;
 
-    count = 0;
+	count = 0;
 	i = 0;
 	while (s[i] != '\0')
 	{

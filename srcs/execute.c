@@ -6,15 +6,15 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 17:59:23 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/27 14:11:48 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 14:58:37 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-static char *check_path(char *s1, char *s2)
+static char	*check_path(char *s1, char *s2)
 {
-	char 		*tmp;
+	char		*tmp;
 	char		*path;
 
 	tmp = ft_strjoin(s1, "/");
@@ -54,7 +54,7 @@ static char	*find_path(t_sh *sh)
 
 static int	sh_exec(t_sh *sh)
 {
-    pid_t	pid;
+	pid_t	pid;
 	char	*path;
 
 	path = find_path(sh);
@@ -77,7 +77,7 @@ int			sh_commands(t_sh *sh)
 {
 	int				i;
 	static char		**builtin;
-    
+
 	i = 0;
 	if (!builtin)
 		builtin = make_builtin();

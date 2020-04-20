@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 19:58:21 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/07 18:57:10 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 14:41:03 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ void	sh_setenv(t_sh *sh)
 		ft_putstr_fd("setenv: too few arguments", 2);
 	else
 	{
-		newvar = ft_joindel(ft_joindel(sh->args[1], ft_strdup("=")), sh->args[2]);
+		newvar = ft_joindel(ft_joindel(sh->args[1], ft_strdup("=")),
+		sh->args[2]);
 		envcpy = ft_array_push(sh->env, newvar, -1);
 		ft_strdel(&newvar);
 		ft_arraydel(sh->env);

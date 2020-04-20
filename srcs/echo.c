@@ -5,14 +5,14 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/19 20:08:34 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/02 18:55:47 by eenasalorin      ###   ########.fr       */
+/*   Created: 2020/04/20 14:29:43 by eenasalorin       #+#    #+#             */
+/*   Updated: 2020/04/20 14:29:45 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void  		sh_echo(t_sh *sh)
+void	sh_echo(t_sh *sh)
 {
 	int i;
 

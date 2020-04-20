@@ -6,35 +6,35 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:15:46 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/02 14:07:11 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 14:39:50 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-char    *ft_rmescapes_inquotes(char *s, char c)
+char	*ft_rmescapes_inquotes(char *s, char c)
 {
-    char    *des;
-    int     i;
-    int     j;
+	char	*des;
+	int		i;
+	int		j;
 
-    if (!(des = ft_strnew(ft_strlen(s))))
-        return (NULL);
-    i = 0;
-    j = 0;
-    while (s[i])
-    {
-        if (s[i] == 92 && (!count_slash(s, i) || (s[i + 1] == 34 && c == 34)))
+	if (!(des = ft_strnew(ft_strlen(s))))
+		return (NULL);
+	i = 0;
+	j = 0;
+	while (s[i])
+	{
+		if (s[i] == 92 && (!count_slash(s, i) || (s[i + 1] == 34 && c == 34)))
 			i++;
 		else
-        	des[j++] = s[i++];
-    }
-    des[j] = '\0';
+			des[j++] = s[i++];
+	}
+	des[j] = '\0';
 	ft_strdel(&s);
-    return (des);
+	return (des);
 }
 
-int 	if_escape(char *s, char c)
+int		if_escape(char *s, char c)
 {
 	int	count;
 	int	i;

@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:03:40 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/27 15:04:25 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 15:21:40 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ char	*ft_joindel(char *s1, char *s2)
 	while (s2[i] != '\0')
 		new[j++] = s2[i++];
 	new[j] = '\0';
-    ft_strdel(&s1);
-    ft_strdel(&s2);
+	ft_strdel(&s1);
+	ft_strdel(&s2);
 	return (new);
 }

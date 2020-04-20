@@ -6,13 +6,13 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/02 18:10:00 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/20 14:40:37 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void    sh_loop(t_sh sh)
+void	sh_loop(t_sh sh)
 {
 	char	*line;
 	int		status;
@@ -30,10 +30,10 @@ void    sh_loop(t_sh sh)
 	}
 }
 
-int main(int ac, char **av, char **env)
+int		main(int ac, char **av, char **env)
 {
 	t_sh sh;
-	
+
 	if (ac && av[0])
 	{
 		sh.env = ft_arraydup(env);
