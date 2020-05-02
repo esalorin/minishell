@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/28 14:49:31 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 15:28:54 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 17:13:05 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ char	*ft_rmescapes(char *s)
 
 	i = -1;
 	j = 0;
-	while (s[++i])
+	while (s && s[++i])
 		j += (s[i] == 92 && s[i + 1] != 92) ? 1 : 0;
 	if (!(des = (char*)malloc(sizeof(char) * (ft_strlen(s) - j))))
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		if (s[i] != 92 || (s[i] == 92 && s[i + 1] == 92))
 			des[j++] = s[i];

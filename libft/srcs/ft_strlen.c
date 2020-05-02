@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esalorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 13:14:25 by esalorin          #+#    #+#             */
-/*   Updated: 2019/10/29 14:15:35 by esalorin         ###   ########.fr       */
+/*   Updated: 2020/04/30 17:20:10 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ size_t	ft_strlen(const char *s)
 	size_t i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (s && s[i] != '\0')
 		i++;
 	return (i);
 }

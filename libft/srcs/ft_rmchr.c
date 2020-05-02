@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 17:36:27 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 15:27:20 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 17:12:51 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ char	*ft_rmchr(char *s, int c)
 	if (!(des = (char*)malloc(sizeof(char) * (ft_strlen(s) - j))))
 		return (NULL);
 	j = 0;
-	while (s[i])
+	while (s && s[i])
 	{
 		if (s[i] != c)
 			des[j++] = s[i];

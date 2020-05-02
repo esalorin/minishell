@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 19:08:00 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/03/24 17:26:12 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 16:59:55 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,11 @@ void	ft_arraydel(char **array)
 	int	i;
 
 	i = 0;
-	while (array[i])
+	while (array && array[i])
 		ft_strdel(&array[i++]);
-	free(array);
-	array = NULL;
+	if (array)
+	{
+		free(array);
+		array = NULL;
+	}
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esalorin <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 16:11:37 by esalorin          #+#    #+#             */
-/*   Updated: 2019/10/29 13:27:41 by esalorin         ###   ########.fr       */
+/*   Updated: 2020/04/30 17:12:44 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_putstr(char const *s)
 {
-	write(1, s, ft_strlen(s));
+	if (s)
+		write(1, s, ft_strlen(s));
 }

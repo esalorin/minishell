@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 18:26:14 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 15:21:54 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 17:18:21 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	ft_strfound(const char *haystack, const char *needle)
 
 	i = 0;
 	a = 0;
-	if (!*needle)
+	if (!needle || !*needle)
 		return (0);
 	while (haystack[i] != '\0')
 	{

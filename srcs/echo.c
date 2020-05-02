@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/20 14:29:43 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 14:29:45 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/05/02 15:09:21 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	sh_echo(t_sh *sh)
 	{
 		if (i > 1 && sh->args[i - 1][0])
 			ft_putchar(' ');
-		ft_putstr(sh->args[i++]);
+		ft_printf("%s", sh->args[i++]);
 	}
 	ft_putchar('\n');
 }

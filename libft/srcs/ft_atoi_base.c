@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
+/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 15:35:20 by esalorin          #+#    #+#             */
-/*   Updated: 2020/01/27 16:07:02 by esalorin         ###   ########.fr       */
+/*   Updated: 2020/04/30 17:05:17 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,8 @@ long long	ft_atoi_base(const char *nbr, unsigned int base)
 	sign = 1;
 	res = 0;
 	i = 0;
+	if (!nbr)
+		return (0);
 	while (nbr[i] == ' ' || nbr[i] == '\t' || nbr[i] == '\n' || nbr[i] == '\f'
 			|| nbr[i] == '\v' || nbr[i] == '\r')
 		i++;

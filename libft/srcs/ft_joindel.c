@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:03:40 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 15:21:40 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 17:08:41 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ char	*ft_joindel(char *s1, char *s2)
 	new = (char*)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2)) + 1);
 	if (new == NULL)
 		return (NULL);
-	while (s1[i] != '\0')
+	while (s1 && s1[i] != '\0')
 		new[j++] = s1[i++];
 	i = 0;
-	while (s2[i] != '\0')
+	while (s2 && s2[i] != '\0')
 		new[j++] = s2[i++];
 	new[j] = '\0';
 	ft_strdel(&s1);

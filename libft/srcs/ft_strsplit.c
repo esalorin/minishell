@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/23 16:10:35 by esalorin          #+#    #+#             */
-/*   Updated: 2020/03/21 18:48:47 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 17:24:59 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,11 +43,11 @@ static int	ft_count(char *s, char c)
 	int count;
 
 	i = 0;
-	if (s[i] != c && s[i] != '\0')
+	if (s && s[i] != c && s[i] != '\0')
 		count = 1;
 	else
 		count = 0;
-	while (s[i] != '\0')
+	while (s && s[i] != '\0')
 	{
 		while (s[i] == c)
 		{

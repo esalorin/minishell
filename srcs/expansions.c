@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 14:46:14 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 14:44:34 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 16:31:41 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ void		expansions(t_sh *sh)
 		}
 		else if (ft_strchr(sh->args[i], '~'))
 		{
-			tmp = home(sh->args[i], sh->home);
+			tmp = home(sh->args[i], checkhome(sh->env));
 			ft_strdel(&sh->args[i]);
 			sh->args[i] = tmp;
 		}
@@ -86,7 +86,7 @@ void		expansions(t_sh *sh)
 	}
 }
 
-char		*savehome(char **env)
+char		*checkhome(char **env)
 {
 	int		i;
 	char	*home;
@@ -97,8 +97,7 @@ char		*savehome(char **env)
 	{
 		if (ft_strncmp(env[i], "HOME=", 5) == 0)
 		{
-			home = ft_strsub(env[i], 5, ft_strlen(env[i]) - 5);
-			break ;
+			return (&env[i][5]);
 		}
 		i++;
 	}

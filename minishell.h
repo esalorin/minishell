@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 15:39:46 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 16:30:45 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,9 @@ typedef struct	s_sh
 {
 	char		**env;
 	char		**args;
-	char		*home;
-
 }				t_sh;
 
-void			sh_loop(t_sh sh);
+void			sh_loop(t_sh *sh);
 void			sh_cd(t_sh *sh);
 void			sh_echo(t_sh *sh);
 void			error(char *s1, char *s2);
@@ -43,7 +41,7 @@ int				quote_match(char *s);
 int				count_slash(char *s, int i);
 
 char			*ft_rmescapes_inquotes(char *s, char c);
-char			*savehome(char **env);
+char			*checkhome(char **env);
 
 char			**make_builtin(void);
 char			**check_if_quotes(char *s);

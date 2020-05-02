@@ -6,13 +6,13 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 19:58:21 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 14:41:03 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 16:56:36 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../minishell.h"
 
-void	sh_unsetenv(t_sh *sh)
+void		sh_unsetenv(t_sh *sh)
 {
 	char	**new;
 	char	*tmp;
@@ -40,25 +40,46 @@ void	sh_unsetenv(t_sh *sh)
 	}
 }
 
-void	sh_setenv(t_sh *sh)
+static void	setenv_new(t_sh *sh, char *tmp)
 {
 	char	**envcpy;
 	char	*newvar;
+
+	newvar = ft_strjoin(tmp, sh->args[2]);
+	envcpy = ft_array_push(sh->env, newvar, -1);
+	ft_arraydel(sh->env);
+	ft_strdel(&newvar);
+	sh->env = envcpy;
+}
+
+void		sh_setenv(t_sh *sh)
+{
+	char	*tmp;
+	int		i;
 
 	if (ft_arraylen(sh->args) < 3)
 		ft_putstr_fd("setenv: too few arguments", 2);
 	else
 	{
-		newvar = ft_joindel(ft_joindel(sh->args[1], ft_strdup("=")),
-		sh->args[2]);
-		envcpy = ft_array_push(sh->env, newvar, -1);
-		ft_strdel(&newvar);
-		ft_arraydel(sh->env);
-		sh->env = envcpy;
+		tmp = ft_strjoin(sh->args[1], "=");
+		i = 0;
+		while (sh->env[i])
+		{
+			if (ft_strncmp(sh->env[i], tmp, ft_strlen(tmp)) == 0)
+			{
+				ft_strdel(&sh->env[i]);
+				sh->env[i] = ft_strjoin(tmp, sh->args[2]);
+				break ;
+			}
+			i++;
+		}
+		if (!sh->env[i])
+			setenv_new(sh, tmp);
+		ft_strdel(&tmp);
 	}
 }
 
-void	sh_env(t_sh *sh)
+void		sh_env(t_sh *sh)
 {
 	if (ft_arraylen(sh->args) == 1)
 		ft_putarray(sh->env);

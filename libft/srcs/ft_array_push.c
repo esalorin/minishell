@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 18:47:01 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 15:25:01 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/04/30 15:40:48 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,11 @@ char	**ft_array_push(char **array, char *str, int index)
 
 	i = 0;
 	j = 0;
-	while (array[i])
+	while (array && array[i])
 		i++;
 	des = (char**)malloc(sizeof(char*) * (i + 2));
 	i = 0;
-	while (array[j])
+	while (array && array[j])
 	{
 		if (i == index)
 			des[i++] = ft_strdup(str);
