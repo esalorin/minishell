@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/02 15:27:25 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/05/11 15:35:36 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,12 @@ static void	prompt(t_sh *sh)
 			if (ft_strcmp(pwd, home) == 0)
 				dir = "~";
 		}
-		ft_printf("%s%s%s $> %s", CBBLUEB, (ft_strlen(dir) > 1) ? ++dir : dir,
+		ft_printf(CBBLUEB"%s%s $> %s", (ft_strlen(dir) > 1) ? ++dir : dir,
 		CBMAGENTAB, CRESET);
 		ft_strdel(&pwd);
 	}
 	else
-		ft_printf("%s%c$> %s", CBMAGENTAB, CRESET);
+		ft_printf(CBMAGENTAB"%c$> %s", CRESET);
 }
 
 void		sh_loop(t_sh *sh)

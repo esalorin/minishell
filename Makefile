@@ -6,7 +6,7 @@
 #    By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/04/02 15:02:54 by eenasalorin      ###   ########.fr        #
+#    Updated: 2020/05/02 16:57:19 by eenasalorin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,16 +23,16 @@ expansions.o
 all : $(NAME)
 
 $(NAME) :
-		@make -C libft/
-		@gcc -Wall -Wextra -Werror -c $(SRCS)
-		@gcc -Wall -Wextra -Werror -o $(NAME) $(SRCS) libft/libft.a
+	@make -C libft/
+	@gcc -Wall -Wextra -Werror -c $(SRCS)
+	@gcc -Wall -Wextra -Werror -o $(NAME) $(SRCS) libft/libft.a
 
 clean : 
-		@rm -f $(OBJ)
-		@make clean -C libft/
+	@rm -f $(OBJ)
+	@make clean -C libft/
 
 fclean : clean
-		@rm -f $(NAME)
-		@make fclean -C libft/
+	@rm -f $(NAME)
+	@make fclean -C libft/
 
 re : fclean all

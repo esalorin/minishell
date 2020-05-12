@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:27:17 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/02 16:43:33 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/05/12 14:17:25 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,31 +34,63 @@ static void	modify_pwd(char **env, char *old, char *new)
 	env[i] = ft_strjoin("PWD=", new);
 }
 
+static char	*oldpwd(char **env)
+{
+	int		i;
+	char	*old;
+
+	i = 0;
+	old = NULL;
+	while (env[i])
+	{
+		if (ft_strncmp(env[i], "OLDPWD=", 7) == 0)
+		{
+			return (&env[i][7]);
+		}
+		i++;
+	}
+	return (old);
+}
+
+static void	cd_new(t_sh *sh, char *pwd, char *new)
+{
+	if (chdir(sh->args[1]) != -1)
+		modify_pwd(sh->env, pwd, (new = getcwd(new, 1)));
+	else
+		error("cd: no such directory: ", sh->args[1]);
+	(new) ? ft_strdel(&new) : 0;
+}
+
+static void	cd_old(char **env, char *pwd, char *new)
+{
+	if (chdir(oldpwd(env)) != -1)
+		modify_pwd(env, pwd, (new = getcwd(new, 1)));
+	ft_printf("%s\n", (new) ? new : pwd);
+	(new) ? ft_strdel(&new) : 0;
+}
+
 void		sh_cd(t_sh *sh)
 {
 	char	*pwd;
 	char	*new;
-	char	*home;
 
 	pwd = NULL;
 	new = NULL;
-	home = checkhome(sh->env);
+	pwd = getcwd(pwd, 1);
 	if (ft_arraylen(sh->args) > 2)
 		error("cd: string not in pwd: ", sh->args[1]);
-	else if (home || sh->args[1])
+	else if (!sh->args[1])
 	{
-		pwd = getcwd(pwd, 1);
-		if (sh->args[1] && ft_strcmp(sh->args[1], "-") == 0 && pwd)
-			ft_printf("%s\n", pwd);
-		else if (sh->args[1] && ft_strcmp(sh->args[1], "-") == 0 && !pwd)
-			ft_putendl_fd("cd: error occured", 2);
-		else if (chdir((sh->args[1]) ? sh->args[1] : home) != -1)
-		{
-			modify_pwd(sh->env, pwd, getcwd(new, 1));
-			(new) ? ft_strdel(&new) : 0;
-		}
-		else if (sh->args[1])
-			error("cd: no such directory: ", sh->args[1]);
-		(pwd) ? ft_strdel(&pwd) : 0;
+		if (chdir(checkhome(sh->env)) != -1)
+			modify_pwd(sh->env, pwd, (new = getcwd(new, 1)));
 	}
+	else if (sh->args[1])
+	{
+		if (ft_strcmp(sh->args[1], "-") == 0)
+			cd_old(sh->env, pwd, new);
+		else
+			cd_new(sh, pwd, new);
+	}
+	(pwd) ? ft_strdel(&pwd) : 0;
+	(new) ? ft_strdel(&new) : 0;
 }
