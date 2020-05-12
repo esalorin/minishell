@@ -6,7 +6,7 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:15:46 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 14:39:50 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/05/12 14:58:44 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ int		quote_match(char *s)
 		}
 		i += s[i] ? 1 : 0;
 	}
-	return (quotes);
+	return ((quotes == 1) ? c : quotes);
 }
