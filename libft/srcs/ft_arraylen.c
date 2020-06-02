@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_arraylen.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/01 16:27:07 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 17:00:22 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:22:23 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

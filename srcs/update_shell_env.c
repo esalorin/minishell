@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   update_shell_env.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 13:44:57 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/01 16:41:29 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:15:41 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	update_shell_env(char *av, t_sh *sh)
 {
-	int 	i;
-	char	*temp;;
+	int		i;
+	char	*temp;
 	char	*temp2;
 	char	*temp3;
 

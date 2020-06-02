@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/21 14:13:33 by esalorin          #+#    #+#             */
-/*   Updated: 2020/04/30 17:23:41 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:33:34 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/02/05 14:53:07 by esalorin          #+#    #+#             */
-/*   Updated: 2020/05/27 13:40:07 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 17:15:34 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,6 @@ char				*ft_itoa_unsigned(unsigned long long value, int base,
 char				*ft_ftoa(long double n, int p);
 char				*ft_joindel(char *s1, char *s2);
 char				*ft_rmchr(char *s, int c);
-char				*ft_rmescapes(char *s);
 
 char				**ft_strsplit(char const *s, char c);
 char				**ft_array_push(char **array, char *str, int index);

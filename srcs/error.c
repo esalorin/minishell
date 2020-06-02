@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 17:35:12 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:35:06 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

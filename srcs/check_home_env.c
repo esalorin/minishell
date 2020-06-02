@@ -1,23 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   check_home_env.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 14:50:04 by esalorin          #+#    #+#             */
-/*   Updated: 2020/06/02 16:31:08 by esalorin         ###   ########.fr       */
+/*   Created: 2020/06/02 14:32:16 by esalorin          #+#    #+#             */
+/*   Updated: 2020/06/02 14:32:41 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+#include "minishell.h"
+
+char		*checkhome(char **env)
 {
-	unsigned int i;
+	int		i;
+	char	*home;
 
 	i = 0;
-	while (s && s[i] != '\0')
+	home = NULL;
+	while (env[i])
 	{
-		f(i, &s[i]);
+		if (ft_strncmp(env[i], "HOME=", 5) == 0)
+		{
+			return (&env[i][5]);
+		}
 		i++;
 	}
+	return (home);
 }

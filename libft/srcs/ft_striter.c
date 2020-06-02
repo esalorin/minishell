@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_striter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 14:37:56 by esalorin          #+#    #+#             */
-/*   Updated: 2020/04/30 17:18:32 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:32:38 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

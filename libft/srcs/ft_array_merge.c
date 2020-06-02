@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_array_merge.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 14:18:24 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 16:58:40 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:26:14 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

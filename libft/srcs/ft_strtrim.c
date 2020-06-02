@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/22 17:38:35 by esalorin          #+#    #+#             */
-/*   Updated: 2020/05/02 14:57:42 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:34:23 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

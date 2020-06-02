@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_array_push.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 18:47:01 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 15:40:48 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:23:15 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

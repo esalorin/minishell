@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_joindel.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:03:40 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 17:08:41 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:28:17 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

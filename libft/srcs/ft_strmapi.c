@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/27 10:46:23 by esalorin          #+#    #+#             */
-/*   Updated: 2020/04/30 17:20:26 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:32:15 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putarray.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 16:21:29 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 17:11:50 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:29:02 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/19 17:32:36 by esalorin          #+#    #+#             */
-/*   Updated: 2020/05/27 13:21:44 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:28:06 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

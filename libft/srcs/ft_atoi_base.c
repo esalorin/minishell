@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/12/18 15:35:20 by esalorin          #+#    #+#             */
-/*   Updated: 2020/04/30 17:05:17 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:27:51 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

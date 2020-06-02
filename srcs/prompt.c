@@ -1,23 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_striteri.c                                      :+:      :+:    :+:   */
+/*   prompt.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/10/22 14:50:04 by esalorin          #+#    #+#             */
-/*   Updated: 2020/06/02 16:31:08 by esalorin         ###   ########.fr       */
+/*   Created: 2020/06/02 15:09:16 by esalorin          #+#    #+#             */
+/*   Updated: 2020/06/02 15:09:33 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-void	ft_striteri(char *s, void (*f)(unsigned int, char *))
+#include "minishell.h"
+
+void	prompt(t_sh *sh)
 {
-	unsigned int i;
+	char	*pwd;
+	char	*home;
+	char	*dir;
+	int		i;
 
 	i = 0;
-	while (s && s[i] != '\0')
+	pwd = getcwd(NULL, 1);
+	if (pwd)
 	{
-		f(i, &s[i]);
-		i++;
+		dir = ft_strrchr(pwd, '/');
+		if ((home = checkhome(sh->env)))
+		{
+			if (ft_strcmp(pwd, home) == 0)
+				dir = "~";
+		}
+		ft_printf(CBLUEB"%s%s $> %s", (ft_strlen(dir) > 1) ? ++dir : dir,
+		CMAGENTAB, CRESET);
+		ft_strdel(&pwd);
 	}
+	else
+		ft_printf(CMAGENTAB"$> %s", CRESET);
 }

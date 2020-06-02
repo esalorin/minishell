@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:54:20 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/01 16:42:56 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 17:48:34 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,8 @@ typedef struct	s_sh
 	char		**args;
 }				t_sh;
 
-
 void			error(char *s1, char *s2);
-void			expansions(t_sh *sh);
+void			prompt(t_sh *sh);
 void			sh_cd(t_sh *sh);
 void			sh_echo(t_sh *sh);
 void			sh_env(t_sh *sh);
@@ -39,17 +38,19 @@ void			sh_setenv(t_sh *sh);
 void			sh_unsetenv(t_sh *sh);
 void			update_shell_env(char *av, t_sh *sh);
 
-int				builtin_func(int i, t_sh *sh);
-int				count_slash(char *s, int i);
-int				if_escape(char *s, char c);
+int				builtin_functions(int i, t_sh *sh);
+int				count_bslash(char *s, int i);
+int				expansions(t_sh *sh);
 int				sh_commands(t_sh *sh);
-int				quote_match(char *s);
+int				sh_exec(t_sh *sh);
 
-char			*ft_rmescapes_inquotes(char *s, char c);
 char			*checkhome(char **env);
+char			*find_path(t_sh *sh);
+char			*ft_rmescapes_inquotes(char *s, char c);
 
 char			**check_if_quotes(char *s);
+char			**escapes(char **array);
 char			**make_builtin(void);
-
+char			**split_args(char *s);
 
 #endif

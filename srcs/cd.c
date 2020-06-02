@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   cd.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:27:17 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 18:05:00 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ static void	modify_pwd(char **env, char *old, char *new)
 	j = 0;
 	if (!old || !new)
 	{
-		ft_putendl_fd("minishell: error while updating env", 2);
+		ft_putendl_fd("warning: failed updating PWD/OLDPWD variables", 2);
 		return ;
 	}
 	while (env[i] && (ft_strncmp("PWD=", env[i], 4) != 0))

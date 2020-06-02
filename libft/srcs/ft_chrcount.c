@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_chrcount.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 17:42:18 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 17:06:35 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:27:32 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

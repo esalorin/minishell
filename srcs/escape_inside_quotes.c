@@ -1,37 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_rmescapes.c                                     :+:      :+:    :+:   */
+/*   escape_inside_quotes.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/03/28 14:49:31 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 17:13:05 by eenasalorin      ###   ########.fr       */
+/*   Created: 2020/06/02 17:18:47 by esalorin          #+#    #+#             */
+/*   Updated: 2020/06/02 17:31:47 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "minishell.h"
 
-char	*ft_rmescapes(char *s)
+char	*ft_rmescapes_inquotes(char *s, char c)
 {
 	char	*des;
 	int		i;
 	int		j;
 
-	i = -1;
-	j = 0;
-	while (s && s[++i])
-		j += (s[i] == 92 && s[i + 1] != 92) ? 1 : 0;
-	if (!(des = (char*)malloc(sizeof(char) * (ft_strlen(s) - j))))
+	if (!(des = ft_strnew(ft_strlen(s))))
 		return (NULL);
 	i = 0;
 	j = 0;
-	while (s && s[i])
+	while (s[i])
 	{
-		if (s[i] != 92 || (s[i] == 92 && s[i + 1] == 92))
-			des[j++] = s[i];
-		i += (s[i] == 92 && s[i + 1] == 92) ? 2 : 1;
+		if (s[i] == BSLASH && (!count_bslash(s, i) || (s[i + 1] == DQUOTE
+		&& c == DQUOTE)))
+			i++;
+		else
+			des[j++] = s[i++];
 	}
 	des[j] = '\0';
+	ft_strdel(&s);
 	return (des);
 }

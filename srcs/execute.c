@@ -3,57 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   execute.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 17:59:23 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 17:59:00 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	*check_path(char *s1, char *s2)
-{
-	char		*tmp;
-	char		*path;
-
-	tmp = ft_strjoin(s1, "/");
-	path = ft_strjoin(tmp, s2);
-	ft_strdel(&tmp);
-	if (access(path, F_OK) == 0)
-		return (path);
-	ft_strdel(&path);
-	return (NULL);
-}
-
-static char	*find_path(t_sh *sh)
-{
-	char	**bin;
-	char	*path;
-	int		i;
-
-	i = 0;
-	path = NULL;
-	while (sh->env[i])
-	{
-		if (ft_strncmp("PATH=", sh->env[i], 5) == 0)
-		{
-			bin = ft_strsplit(&sh->env[i][5], ':');
-			i = 0;
-			while (bin[i])
-			{
-				if ((path = check_path(bin[i++], sh->args[0])))
-					break ;
-			}
-			ft_arraydel(bin);
-			break ;
-		}
-		i++;
-	}
-	return (path);
-}
-
-static int	sh_exec(t_sh *sh)
+int			sh_exec(t_sh *sh)
 {
 	pid_t	pid;
 	char	*path;
@@ -69,29 +28,7 @@ static int	sh_exec(t_sh *sh)
 	else if (pid > 0)
 		wait(NULL);
 	else
-		ft_putendl_fd("minishell: fork failed", 2);
+		ft_putendl_fd("fork(): an error occurred, please try again later", 2);
 	(path) ? ft_strdel(&path) : 0;
 	return (1);
-}
-
-int			sh_commands(t_sh *sh)
-{
-	int				i;
-	static char		**builtin;
-
-	i = 0;
-	if (!builtin && (!(builtin = make_builtin())))
-	{
-			ft_putendl_fd("Malloc error", 2);
-			return (1);
-	}
-	if (!sh->args[0])
-		return (1);
-	while (builtin[i])
-	{
-		if (ft_strcmp(sh->args[0], builtin[i]) == 0)
-			return (builtin_func(i, sh));
-		i++;
-	}
-	return (sh_exec(sh));
 }

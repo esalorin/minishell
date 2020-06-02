@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 15:53:18 by esalorin          #+#    #+#             */
-/*   Updated: 2020/04/30 17:21:35 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:32:52 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

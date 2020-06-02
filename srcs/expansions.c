@@ -3,36 +3,29 @@
 /*                                                        :::      ::::::::   */
 /*   expansions.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/02 14:46:14 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:08:01 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	*home(char *arg, char *home)
+static char	*tilde(char *arg, char *home)
 {
-	int		i;
-	char	*tmp;
 	char	*des;
 
-	i = 0;
-	while (arg[i] && arg[i] != '~')
-		i++;
-	tmp = ft_strsub(arg, 0, i);
-	des = ft_strjoin(tmp, home);
-	ft_strdel(&tmp);
-	if (arg[i + 1])
+	if (!arg[1] || arg[1] == '/')
 	{
-		tmp = ft_strdup(&arg[i + 1]);
-		des = ft_joindel(des, tmp);
+		des = ft_strjoin(home, &arg[1]);
+		return (des);
 	}
-	return (des);
+	error("minishell: no such user or named directory: ", &arg[1]);
+	return (0);
 }
 
-static char	*envar(char *arg, char **env, char *exp)
+static char	*env_variable(char *arg, char **env, char *exp)
 {
 	int		i;
 	int		j;
@@ -60,7 +53,7 @@ static char	*envar(char *arg, char **env, char *exp)
 	return ((des) ? des : s1);
 }
 
-void		expansions(t_sh *sh)
+int			expansions(t_sh *sh)
 {
 	int		i;
 	char	*tmp;
@@ -71,35 +64,19 @@ void		expansions(t_sh *sh)
 	{
 		if ((exp = ft_strchr(sh->args[i], '$')))
 		{
-			tmp = envar(sh->args[i], sh->env, exp);
+			tmp = env_variable(sh->args[i], sh->env, exp);
 			ft_strdel(&sh->args[i]);
 			sh->args[i] = tmp;
 		}
-		else if (ft_strchr(sh->args[i], '~'))
+		else if (sh->args[i][0] == '~')
 		{
-			tmp = home(sh->args[i], checkhome(sh->env));
+			if (!(tmp = tilde(sh->args[i], checkhome(sh->env))))
+				return (0);
 			ft_strdel(&sh->args[i]);
 			sh->args[i] = tmp;
 		}
 		else
 			i++;
 	}
-}
-
-char		*checkhome(char **env)
-{
-	int		i;
-	char	*home;
-
-	i = 0;
-	home = NULL;
-	while (env[i])
-	{
-		if (ft_strncmp(env[i], "HOME=", 5) == 0)
-		{
-			return (&env[i][5]);
-		}
-		i++;
-	}
-	return (home);
+	return (1);
 }

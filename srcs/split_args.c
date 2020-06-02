@@ -3,31 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   split_args.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 14:27:24 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/01 18:33:08 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 17:31:32 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-static char	**escapes(char **array)
-{
-	int		i;
-	char	*tmp;
-
-	i = 0;
-	while (array && array[i])
-	{
-		tmp = ft_rmescapes(array[i]);
-		ft_strdel(&array[i]);
-		array[i++] = tmp;
-	}
-	return (array);
-}
-
-static char	**last(char **array, char *s, int i, int j)
+static char	**last_arg(char **array, char *s, int i, int j)
 {
 	char	**des;
 	char	**temp;
@@ -51,7 +36,7 @@ static char	**last(char **array, char *s, int i, int j)
 	return (des);
 }
 
-static char	**quotes(char **array, char *s, int *i, int *j)
+static char	**split_by_quotes(char **array, char *s, int *i, int *j)
 {
 	char	**ar1;
 	char	**ar2;
@@ -64,7 +49,7 @@ static char	**quotes(char **array, char *s, int *i, int *j)
 	ar2 = ft_array_merge(array, escapes(ar1));
 	ft_strdel(&temp);
 	*j = ++(*i);
-	while (s[*i] != c || (s[*i] == c && c == 34 && !count_slash(s, *i)))
+	while (s[*i] != c || (s[*i] == c && c == DQUOTE && !count_bslash(s, *i)))
 		(*i)++;
 	temp = ft_rmescapes_inquotes(ft_strsub(s, *j, (*i - *j)), c);
 	if (*j > 1 && s[*j - 2] != ' ')
@@ -80,7 +65,7 @@ static char	**quotes(char **array, char *s, int *i, int *j)
 	return (ar1);
 }
 
-static char	**split_args(char *s)
+char		**split_args(char *s)
 {
 	char	**temp;
 	char	**array;
@@ -92,14 +77,14 @@ static char	**split_args(char *s)
 	array = ft_arraynew(0);
 	while (1)
 	{
-		if ((s[i] == 34 || s[i] == 39) && count_slash(s, i))
+		if ((s[i] == DQUOTE || s[i] == SQUOTE) && count_bslash(s, i))
 		{
-			temp = quotes(array, s, &i, &j);
+			temp = split_by_quotes(array, s, &i, &j);
 			array = temp;
 		}
 		else if (s[i] == '\0')
 		{
-			temp = last(array, s, i, j);
+			temp = last_arg(array, s, i, j);
 			array = temp;
 			break ;
 		}
@@ -107,32 +92,4 @@ static char	**split_args(char *s)
 	}
 	ft_strdel(&s);
 	return (array);
-}
-
-char		**check_if_quotes(char *s)
-{
-	char	*s1;
-	char	*s2;
-	char	*tmp;
-	int		q;
-
-	if ((q = quote_match(s)) == 0 && count_slash(s, ft_strlen(s)))
-		return (escapes(ft_strsplit(s, ' ')));
-	s1 = ft_strdup(s);
-	while (q % 2 != 0 || q == 34 || q == 39 || !count_slash(s1, ft_strlen(s1)))
-	{
-		if (q == 34 || q == 39)
-			ft_printf((q == 34) ? "dquote" : "quote");
-		ft_printf("> ");
-		get_next_line(0, &tmp);
-		(q == 2 || q == 0) && !tmp[0] ? ft_strdel(&tmp) : 0;
-		if ((q == 2 || q == 0) && !tmp[0])
-			break ;
-		s2 = (q == 2 || q == 0) ? ft_strdup(tmp) :
-		ft_strjoin("\n", tmp);
-		ft_strdel(&tmp);
-		s1 = ft_joindel(s1, s2);
-		q = quote_match(s1);
-	}
-	return (split_args(s1));
 }

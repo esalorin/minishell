@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+         #
+#    By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/12/22 15:38:44 by esalorin          #+#    #+#              #
-#    Updated: 2020/05/11 16:22:47 by eenasalorin      ###   ########.fr        #
+#    Updated: 2020/06/02 17:32:18 by esalorin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ srcs/ft_putnbr_fd.c srcs/ft_strjoin.c srcs/ft_lstnew.c srcs/ft_lstdelone.c srcs/
 srcs/ft_itoa_base.c srcs/ft_atoi_base.c srcs/ft_itoa_unsigned.c srcs/ft_ftoa.c srcs/ft_swap.c \
 srcs/get_next_line.c srcs/ft_chrcount.c srcs/ft_array_push.c srcs/ft_arraynew.c srcs/ft_arraydel.c \
 srcs/ft_array_merge.c srcs/ft_putarray.c srcs/ft_strfound.c srcs/ft_arraydup.c srcs/ft_arrayrem.c \
-srcs/ft_joindel.c srcs/ft_rmchr.c srcs/ft_rmescapes.c srcs/ft_arraylen.c
+srcs/ft_joindel.c srcs/ft_rmchr.c srcs/ft_arraylen.c
 
 OBJ = ft_printf.o ft_print_csp.o ft_print_dioux.o ft_print_flags.o ft_dioux_flags.o ft_nbrlen.o\
 ft_print_double.o ft_check_dioux.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memccpy.o ft_memmove.o \
@@ -41,8 +41,7 @@ ft_strtrim.o ft_strsplit.o ft_itoa.o ft_putchar.o ft_putstr.o ft_putendl.o ft_pu
 ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_strjoin.o ft_lstnew.o \
 ft_lstdelone.o ft_itoa_base.o ft_atoi_base.o ft_itoa_unsigned.o ft_ftoa.o ft_strswap.o ft_swap.o \
 get_next_line.o ft_chrcount.o ft_array_push.o ft_arraynew.o ft_arraydel.o ft_array_merge.o \
-ft_putarray.o ft_strfound.o ft_arraydup.o ft_arrayrem.o ft_joindel.o ft_rmchr.o ft_rmescapes.o \
-ft_arraylen.o
+ft_putarray.o ft_strfound.o ft_arraydup.o ft_arrayrem.o ft_joindel.o ft_rmchr.o ft_arraylen.o
 
 INC = srcs/libft.h
 

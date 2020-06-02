@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
+/*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/10/18 14:41:32 by esalorin          #+#    #+#             */
-/*   Updated: 2020/04/30 17:22:22 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/02 16:33:25 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
