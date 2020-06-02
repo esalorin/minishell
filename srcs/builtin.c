@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:07:37 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 14:25:40 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 char	**make_builtin(void)
 {
@@ -30,6 +30,8 @@ char	**make_builtin(void)
 
 int		builtin_func(int i, t_sh *sh)
 {
+	if (i == 0)
+		exit(1);
 	if (i == 1)
 		sh_cd(sh);
 	else if (i == 2)

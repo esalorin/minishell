@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/20 17:35:12 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 14:38:13 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 void	error(char *s1, char *s2)
 {

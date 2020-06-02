@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/11 15:35:36 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 18:33:40 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 static void	prompt(t_sh *sh)
 {
@@ -29,15 +29,15 @@ static void	prompt(t_sh *sh)
 			if (ft_strcmp(pwd, home) == 0)
 				dir = "~";
 		}
-		ft_printf(CBBLUEB"%s%s $> %s", (ft_strlen(dir) > 1) ? ++dir : dir,
-		CBMAGENTAB, CRESET);
+		ft_printf(CBLUEB"%s%s $> %s", (ft_strlen(dir) > 1) ? ++dir : dir,
+		CMAGENTAB, CRESET);
 		ft_strdel(&pwd);
 	}
 	else
-		ft_printf(CBMAGENTAB"%c$> %s", CRESET);
+		ft_printf(CMAGENTAB"$> %s", CRESET);
 }
 
-void		sh_loop(t_sh *sh)
+static void	sh_loop(t_sh *sh)
 {
 	char	*line;
 	int		status;
@@ -62,6 +62,7 @@ int			main(int ac, char **av, char **env)
 	if (ac && av[0])
 	{
 		sh.env = ft_arraydup(env);
+		update_shell_env(av[0], &sh);
 		sh_loop(&sh);
 		ft_arraydel(sh.env);
 	}

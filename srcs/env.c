@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/25 19:58:21 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/30 16:56:36 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 void		sh_unsetenv(t_sh *sh)
 {

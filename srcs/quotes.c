@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/27 15:15:46 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/12 14:58:44 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 18:28:28 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 char	*ft_rmescapes_inquotes(char *s, char c)
 {
@@ -24,7 +24,8 @@ char	*ft_rmescapes_inquotes(char *s, char c)
 	j = 0;
 	while (s[i])
 	{
-		if (s[i] == 92 && (!count_slash(s, i) || (s[i + 1] == 34 && c == 34)))
+		if (s[i] == BSLASH && (!count_slash(s, i) || (s[i + 1] == DQUOTE
+		&& c == DQUOTE)))
 			i++;
 		else
 			des[j++] = s[i++];
@@ -44,7 +45,7 @@ int		if_escape(char *s, char c)
 	while (s[i])
 	{
 		if (s[i] == c && i > 0)
-			count += (s[i - 1] == 92) ? 1 : 0;
+			count += (s[i - 1] == BSLASH) ? 1 : 0;
 		i++;
 	}
 	return (count);
@@ -55,7 +56,7 @@ int		count_slash(char *s, int i)
 	int	count;
 
 	count = 0;
-	while (i-- != 0 && s[i] == 92)
+	while (i-- != 0 && s[i] == BSLASH)
 		count++;
 	return ((count % 2 == 0) ? 1 : 0);
 }
@@ -70,13 +71,14 @@ int		quote_match(char *s)
 	quotes = 0;
 	while (s[i])
 	{
-		if ((s[i] == 34 || s[i] == 39) && count_slash(s, i))
+		if ((s[i] == DQUOTE || s[i] == SQUOTE) && count_slash(s, i))
 		{
 			c = s[i];
 			quotes = 1;
 			while (s[++i])
 			{
-				if (s[i] == c && (c == 39 || (c == 34 && count_slash(s, i))))
+				if (s[i] == c && (c == SQUOTE || (c == DQUOTE &&
+				count_slash(s, i))))
 				{
 					quotes = 2;
 					break ;

@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/19 19:27:17 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/12 14:17:25 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 static void	modify_pwd(char **env, char *old, char *new)
 {

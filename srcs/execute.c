@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/18 17:59:23 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/04/20 14:58:37 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 16:17:09 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 static char	*check_path(char *s1, char *s2)
 {
@@ -32,9 +32,9 @@ static char	*find_path(t_sh *sh)
 	char	*path;
 	int		i;
 
-	i = -1;
+	i = 0;
 	path = NULL;
-	while (sh->env[++i])
+	while (sh->env[i])
 	{
 		if (ft_strncmp("PATH=", sh->env[i], 5) == 0)
 		{
@@ -48,6 +48,7 @@ static char	*find_path(t_sh *sh)
 			ft_arraydel(bin);
 			break ;
 		}
+		i++;
 	}
 	return (path);
 }
@@ -79,18 +80,17 @@ int			sh_commands(t_sh *sh)
 	static char		**builtin;
 
 	i = 0;
-	if (!builtin)
-		builtin = make_builtin();
+	if (!builtin && (!(builtin = make_builtin())))
+	{
+			ft_putendl_fd("Malloc error", 2);
+			return (1);
+	}
 	if (!sh->args[0])
 		return (1);
-	while (builtin && builtin[i])
+	while (builtin[i])
 	{
 		if (ft_strcmp(sh->args[0], builtin[i]) == 0)
-		{
-			if (i == 0)
-				exit(1);
 			return (builtin_func(i, sh));
-		}
 		i++;
 	}
 	return (sh_exec(sh));

@@ -6,11 +6,11 @@
 /*   By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/21 14:27:24 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/05/12 15:50:45 by eenasalorin      ###   ########.fr       */
+/*   Updated: 2020/06/01 18:33:08 by eenasalorin      ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../minishell.h"
+#include "minishell.h"
 
 static char	**escapes(char **array)
 {
@@ -35,7 +35,7 @@ static char	**last(char **array, char *s, int i, int j)
 
 	tmp = ft_strsub(s, j, (i - j));
 	temp = escapes(ft_strsplit(tmp, ' '));
-	if (j > 1 && ft_isprint(s[j - 2]))
+	if (j > 1 && s[j - 2] != ' ')
 	{
 		array[ft_arraylen(array) - 1] = ft_joindel(array[ft_arraylen(array)
 		- 1], ft_strdup(temp[0]));
@@ -67,7 +67,7 @@ static char	**quotes(char **array, char *s, int *i, int *j)
 	while (s[*i] != c || (s[*i] == c && c == 34 && !count_slash(s, *i)))
 		(*i)++;
 	temp = ft_rmescapes_inquotes(ft_strsub(s, *j, (*i - *j)), c);
-	if (*j > 1 && ft_isprint(s[*j - 2]))
+	if (*j > 1 && s[*j - 2] != ' ')
 	{
 		*j = *i + 1;
 		ar2[ft_arraylen(ar2) - 1] = ft_joindel(ar2[ft_arraylen(ar2) - 1], temp);

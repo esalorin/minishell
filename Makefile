@@ -6,26 +6,34 @@
 #    By: eenasalorinta <eenasalorinta@student.42    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/03/17 16:41:55 by eenasalorin       #+#    #+#              #
-#    Updated: 2020/05/02 16:57:19 by eenasalorin      ###   ########.fr        #
+#    Updated: 2020/06/01 16:21:45 by eenasalorin      ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = minishell
 
-SRCS = srcs/main.c srcs/execute.c srcs/builtin.c srcs/cd.c srcs/echo.c srcs/error.c \
-srcs/split_args.c srcs/env.c srcs/quotes.c srcs/expansions.c
+INC_DIR := ./includes
+SRCS_DIR := ./srcs
+OBJ_DIR := ./obj
 
-OBJ = main.o execute.o builtin.o cd.o echo.o error.o split_args.o env.o quotes.o \
-expansions.o
+SRCS := main.c execute.c builtin.c cd.c echo.c error.c split_args.c env.c \
+quotes.c expansions.c update_shell_env.c
+
+OBJ :=	$(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 .PHONY : all clean fclean re
 
 all : $(NAME)
 
-$(NAME) :
+$(OBJ_DIR):
+	@/bin/mkdir -p $(OBJ_DIR)
+
+$(OBJ_DIR)/%.o:$(SRCS_DIR)/%.c
+	@gcc -Wall -Wextra -Werror -I $(INC_DIR) -o $@ -c $<
+
+$(NAME) : $(OBJ_DIR) $(OBJ)
 	@make -C libft/
-	@gcc -Wall -Wextra -Werror -c $(SRCS)
-	@gcc -Wall -Wextra -Werror -o $(NAME) $(SRCS) libft/libft.a
+	@gcc -Wall -Wextra -Werror -o $(NAME) $(OBJ) libft/libft.a
 
 clean : 
 	@rm -f $(OBJ)
