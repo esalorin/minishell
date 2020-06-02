@@ -6,7 +6,7 @@
 /*   By: esalorin <esalorin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/03/17 16:56:25 by eenasalorin       #+#    #+#             */
-/*   Updated: 2020/06/02 16:20:33 by esalorin         ###   ########.fr       */
+/*   Updated: 2020/06/02 18:37:06 by esalorin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,16 @@ static void	sh_loop(t_sh *sh)
 	while (status)
 	{
 		prompt(sh);
-		get_next_line(0, &line);
-		sh->args = check_if_quotes(line);
-		if (expansions(sh))
-			status = sh_commands(sh);
-		ft_strdel(&line);
-		ft_arraydel(sh->args);
+		if (get_next_line(0, &line))
+		{
+			sh->args = check_if_quotes(line);
+			if (expansions(sh))
+				status = sh_commands(sh);
+			ft_strdel(&line);
+			ft_arraydel(sh->args);
+		}
+		else
+			ft_putchar('\n');
 	}
 }
 
